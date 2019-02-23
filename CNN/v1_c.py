@@ -10,7 +10,9 @@ import numpy as np
 import os
 import random
 import tensorflow as tf
-
+from quiver_engine import server
+# import quiver_engine
+# from gevent.pywsgi import WSGIServer
 # Initialising and loading Model
 
 model = Sequential()
@@ -33,6 +35,7 @@ model.add(UpSampling2D((2, 2)))
 model.compile(optimizer='rmsprop', loss='mse')
 
 model.load_weights("model.h5")
+# quiver_engine.server.launch(model, input_folder='test/')
 
 # Change to '/data/images/Test/' to use all the 500 images
 color_me = []
@@ -53,3 +56,4 @@ for i in range(len(output)):
 	cur[:,:,0] = color_me[i][:,:,0]
 	cur[:,:,1:] = output[i]
 	imsave("result/img_"+str(i)+".png", lab2rgb(cur))
+server.launch(model, input_folder='test/')
