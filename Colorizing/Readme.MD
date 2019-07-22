@@ -1,6 +1,7 @@
 ## Before running the application
 * You will need the model files for the application to run.
 * Here are the trained model files. The models have been trained for 1000 images. 
+* [Named Link](https://drive.google.com/open?id=1mM4B6vskiS0N7-qpluWx4ZiASEI2azkA "Inception-Resnet-v2 trained model")
 
 ## Running the application
 
